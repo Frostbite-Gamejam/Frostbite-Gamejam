@@ -37,7 +37,7 @@ public class MainPlayer : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider other)
-    {
+                     {
         if (Input.GetKey(interactKey) && inputBufferCounter >= inputBufferTarget)
         {
             playerIsInteracting = true;

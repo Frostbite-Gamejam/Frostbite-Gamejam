@@ -4,10 +4,7 @@ public class DisableObject : MonoBehaviour
 {
     [SerializeField] private GameObject objectToDisable;
 
-    public void Disable()
-    {
-        objectToDisable.SetActive(false);
-    }
+    public void Disable() => objectToDisable.SetActive(false); // LAMBDA 1 LINER
 
     private void OnTriggerStay(Collider other)
     {
