@@ -1,21 +1,20 @@
 ﻿using UnityEngine;
 
-public class Destroy : MonoBehaviour
+public class DisableObject : MonoBehaviour
 {
-    [SerializeField] private GameObject objectToDestroy;
+    [SerializeField] private GameObject objectToDisable;
 
-
-    public void DisableObject()
+    public void Disable()
     {
-        objectToDestroy.SetActive(false);
+        objectToDisable.SetActive(false);
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<MainPlayer>().playerIsInteracting)
         {
-            DisableObject();
             other.GetComponent<MainPlayer>().playerIsInteracting = false;
+            Disable();
         }
     }
 }
