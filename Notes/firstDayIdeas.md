@@ -14,12 +14,22 @@
 - Purgatory
 - Potentially a monster???
 
-## Progression
-1.) Player has no idea WTF is going on in the beginning
-- Timed Elements to play? Think escape room
-- No combat probably
+## Facts
+- You are a high ranking govt official who oversaw the construction of a cold war bunker
+- Hazy memories of the construction of the bunker
 
-2.) Information is slowly spoon fed to the player
+## Progression
+1.) Super linear progression forward through time
+- Start in cave
+- Voice and feeling urging you to figure out WTF is happening
+- Lock off objects from past rooms?
+2.) ???
+3.) Bunker awaiting use
+4.) Bunker in use
+5.) Room Abandonded
+6.) Museum
+
+# Aliens are trying to make you figure out what happened
 
 ## Atmostophere
 - Sounds
