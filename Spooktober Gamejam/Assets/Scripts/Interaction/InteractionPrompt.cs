@@ -7,35 +7,36 @@ using UnityEngine.UI;
 
 public class InteractionPrompt : MonoBehaviour
 {
-
     private GameObject promptBox;
-    private Text text;
+    private Text promptBoxText;
     private bool promptShowing;
 
     private void Awake()
     {
         promptBox = GameObject.FindGameObjectWithTag("PromptBox");
-        text = promptBox.GetComponent<Text>();
+        promptBoxText = GameObject.FindGameObjectWithTag("PromptBoxText").GetComponent<Text>();
         promptShowing = false;
     }
 
     private void Start()
     {
         promptBox.SetActive(false);
-        text.text = "Press E to interact"; // TODO handle custom controls, ie "Press <interact key> to interact" not "Press E to interact"
     }
 
-    public void showPromptBox()
+    public void showPromptBox(string message)
     {
-        promptShowing = true;
+        promptBoxText.text = message;
         promptBox.SetActive(true);
+        promptShowing = true;
     }
 
     public void hidePromptBox()
     {
         if (promptShowing)
         {
+            promptBoxText.text = "";
             promptBox.SetActive(false);
+            promptShowing = false;
         }
     }
 }

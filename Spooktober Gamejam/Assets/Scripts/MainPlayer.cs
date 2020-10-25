@@ -15,6 +15,7 @@ public class MainPlayer : MonoBehaviour
     private bool objectHasBeenHighlighted = false;
     private HighlightEffect currentlyHighlightedItem = null;
     private InteractionPrompt interactionPrompt;
+    public string promptToDisplay;
     #endregion
 
     #region METHODS
@@ -42,7 +43,7 @@ public class MainPlayer : MonoBehaviour
     {
         if (IsInLayerMask(other.gameObject.layer, interactableLayer)) // if 'other' is on the interactable layer
         {
-            interactionPrompt.showPromptBox();
+            interactionPrompt.showPromptBox(promptToDisplay);
         }
 
         if (Input.GetKey(interactKey) && inputBufferCounter >= inputBufferTarget)

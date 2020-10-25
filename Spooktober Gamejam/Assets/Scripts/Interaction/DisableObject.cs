@@ -2,6 +2,7 @@
 
 public class DisableObject : MonoBehaviour
 {
+    [SerializeField] private string interactionPrompt;
     [SerializeField] private GameObject objectToDisable;
 
     public void Disable()
@@ -11,6 +12,10 @@ public class DisableObject : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.GetComponent<MainPlayer>())
+        {
+            other.GetComponent<MainPlayer>().promptToDisplay = interactionPrompt;
+        }
 
         if (other.GetComponent<MainPlayer>().playerIsInteracting)
         {

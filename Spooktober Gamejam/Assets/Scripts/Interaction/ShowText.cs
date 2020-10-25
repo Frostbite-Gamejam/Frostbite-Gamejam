@@ -7,6 +7,7 @@ public class ShowText : MonoBehaviour {
     private GameObject textBox;
     private Text text;
 
+    [SerializeField] private string interactionPrompt;
     [SerializeField] private string textBoxMsg;
     [SerializeField] private float waitTime;
 
@@ -25,6 +26,11 @@ public class ShowText : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.GetComponent<MainPlayer>())
+        {
+            other.GetComponent<MainPlayer>().promptToDisplay = interactionPrompt;
+        }
+
         if (other.GetComponent<MainPlayer>().playerIsInteracting && !isTextBoxActive)
         {
             other.GetComponent<MainPlayer>().playerIsInteracting = false;

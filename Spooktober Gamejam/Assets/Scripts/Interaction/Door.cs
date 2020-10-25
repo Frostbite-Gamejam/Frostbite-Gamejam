@@ -4,6 +4,7 @@ public class Door : MonoBehaviour
 {
     private Animator animator;
 
+    [SerializeField] private string interactionPrompt;
     [SerializeField] private bool keyRequired = false;
     [SerializeField] private GameObject linkedKey;
 
@@ -29,6 +30,11 @@ public class Door : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.GetComponent<MainPlayer>())
+        {
+            other.GetComponent<MainPlayer>().promptToDisplay = interactionPrompt;
+        }
+
         if (other.GetComponent<MainPlayer>().playerIsInteracting)
         {
             other.GetComponent<MainPlayer>().playerIsInteracting = false;

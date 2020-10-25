@@ -2,6 +2,7 @@
 
 public class Create : MonoBehaviour
 {
+    [SerializeField] private string interactionPrompt;
     [SerializeField] private GameObject objectToCreate;
 
     public void CreateObject()
@@ -11,6 +12,10 @@ public class Create : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.GetComponent<MainPlayer>())
+        {
+            other.GetComponent<MainPlayer>().promptToDisplay = interactionPrompt;
+        }
 
         if (other.GetComponent<MainPlayer>().playerIsInteracting)
         {
