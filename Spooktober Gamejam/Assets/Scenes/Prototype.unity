@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 664431151}
   - component: {fileID: 664431150}
   - component: {fileID: 664431147}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 10
+  outlineWidth: 7
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 850826640}
   - component: {fileID: 850826639}
   - component: {fileID: 850826638}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 1173650176}
   - component: {fileID: 1173650178}
   - component: {fileID: 1173650177}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Door Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 10
+  outlineWidth: 7
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -867,7 +867,7 @@ GameObject:
   - component: {fileID: 1341726997}
   - component: {fileID: 1341726996}
   - component: {fileID: 1341726992}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -988,7 +988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 10
+  outlineWidth: 7
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -1245,7 +1245,7 @@ GameObject:
   - component: {fileID: 1997430796}
   - component: {fileID: 1997430795}
   - component: {fileID: 1997430793}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1379,7 +1379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 10
+  outlineWidth: 7
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -1676,9 +1676,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ee227f2f8504345af8989280806878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIsInteracting: 0
+  viewHighlightDistance: 100
   inputBufferTarget: 0.1
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 512
   interactKey: 101
+  playerIsInteracting: 0
 --- !u!1 &732133686470941696
 GameObject:
   m_ObjectHideFlags: 0
