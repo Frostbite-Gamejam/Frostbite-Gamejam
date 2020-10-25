@@ -13,8 +13,8 @@ public class Create : MonoBehaviour
     {
         if (other.GetComponent<MainPlayer>().playerIsInteracting)
         {
-            CreateObject();
             other.GetComponent<MainPlayer>().playerIsInteracting = false;
+            CreateObject();
         }
     }
 }
