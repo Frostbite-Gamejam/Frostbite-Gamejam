@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 590637006}
   - component: {fileID: 590637005}
   - component: {fileID: 590637004}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Pedastal Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,8 +570,8 @@ GameObject:
   - component: {fileID: 594165410}
   - component: {fileID: 594165409}
   - component: {fileID: 594165408}
-  m_Layer: 8
-  m_Name: Pedastal Left Text
+  m_Layer: 0
+  m_Name: Pedastal Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -663,9 +663,11 @@ GameObject:
   - component: {fileID: 664431145}
   - component: {fileID: 664431149}
   - component: {fileID: 664431148}
-  - component: {fileID: 664431147}
   - component: {fileID: 664431146}
-  m_Layer: 8
+  - component: {fileID: 664431151}
+  - component: {fileID: 664431150}
+  - component: {fileID: 664431147}
+  m_Layer: 9
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,20 +701,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDisable: {fileID: 536577560}
---- !u!136 &664431147
-CapsuleCollider:
+--- !u!114 &664431147
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664431144}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 2
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb3e0b64037f8b45859c98bb1d334c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &664431148
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -760,6 +760,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664431144}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &664431150
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664431144}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 12, z: 4}
+  m_Center: {x: 0, y: -1, z: 0}
+--- !u!114 &664431151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664431144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 7
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &850826636
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +803,7 @@ GameObject:
   - component: {fileID: 850826640}
   - component: {fileID: 850826639}
   - component: {fileID: 850826638}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -865,7 +896,7 @@ GameObject:
   - component: {fileID: 1173097686}
   - component: {fileID: 1173097685}
   - component: {fileID: 1173097684}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Pedastal Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -959,7 +990,9 @@ GameObject:
   - component: {fileID: 1173650175}
   - component: {fileID: 1173650174}
   - component: {fileID: 1173650176}
-  m_Layer: 8
+  - component: {fileID: 1173650178}
+  - component: {fileID: 1173650177}
+  m_Layer: 9
   m_Name: Door Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1027,6 +1060,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6, y: 3, z: 4}
   m_Center: {x: 0, y: 0, z: 1}
+--- !u!114 &1173650177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173650172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb3e0b64037f8b45859c98bb1d334c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1173650178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173650172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 7
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1333327108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,9 +1101,11 @@ GameObject:
   - component: {fileID: 1333327109}
   - component: {fileID: 1333327113}
   - component: {fileID: 1333327112}
-  - component: {fileID: 1333327111}
   - component: {fileID: 1333327110}
-  m_Layer: 8
+  - component: {fileID: 1333327115}
+  - component: {fileID: 1333327114}
+  - component: {fileID: 1333327111}
+  m_Layer: 9
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1073,24 +1138,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a34c1744eef6e4c9747d00f9608cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 1566123720}
-  text: {fileID: 64016797}
   textBoxMsg: eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
   waitTime: 3
---- !u!136 &1333327111
-CapsuleCollider:
+--- !u!114 &1333327111
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333327108}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 2
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb3e0b64037f8b45859c98bb1d334c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1333327112
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1138,6 +1199,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333327108}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1333327114
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333327108}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 12, z: 4}
+  m_Center: {x: 0, y: -1, z: 0}
+--- !u!114 &1333327115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333327108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 7
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1341726990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,9 +1241,11 @@ GameObject:
   - component: {fileID: 1341726991}
   - component: {fileID: 1341726994}
   - component: {fileID: 1341726993}
-  - component: {fileID: 1341726992}
   - component: {fileID: 1341726995}
-  m_Layer: 8
+  - component: {fileID: 1341726997}
+  - component: {fileID: 1341726996}
+  - component: {fileID: 1341726992}
+  m_Layer: 9
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1172,20 +1266,18 @@ Transform:
   m_Father: {fileID: 1173097683}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1341726992
-CapsuleCollider:
+--- !u!114 &1341726992
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341726990}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 2
-  m_Height: 2.0000002
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb3e0b64037f8b45859c98bb1d334c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1341726993
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1247,6 +1339,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToCreate: {fileID: 236482850187085693, guid: 81eccb95cd7f4f345a83a818454d47d9,
     type: 3}
+--- !u!65 &1341726996
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341726990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 12, z: 4}
+  m_Center: {x: 0, y: -1, z: 0}
+--- !u!114 &1341726997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341726990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 7
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1398576421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,7 +1631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1566123721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1591,7 +1714,7 @@ GameObject:
   - component: {fileID: 1585153700}
   - component: {fileID: 1585153699}
   - component: {fileID: 1585153698}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1758,9 +1881,11 @@ GameObject:
   - component: {fileID: 1997430792}
   - component: {fileID: 1997430791}
   - component: {fileID: 1997430790}
-  - component: {fileID: 1997430793}
   - component: {fileID: 1997430794}
-  m_Layer: 8
+  - component: {fileID: 1997430796}
+  - component: {fileID: 1997430795}
+  - component: {fileID: 1997430793}
+  m_Layer: 9
   m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1791,7 +1916,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -1842,19 +1967,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997430788}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!135 &1997430793
-SphereCollider:
+--- !u!114 &1997430793
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997430788}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 6
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb3e0b64037f8b45859c98bb1d334c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1997430794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1868,6 +1992,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDisable: {fileID: 1997430788}
+--- !u!65 &1997430795
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997430788}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 5, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1997430796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997430788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 7
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2112807008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,9 +2317,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ee227f2f8504345af8989280806878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIsInteracting: 0
+  viewHighlightDistance: 100
   inputBufferTarget: 0.1
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 512
   interactKey: 101
+  playerIsInteracting: 0
 --- !u!1 &732133686470941696
 GameObject:
   m_ObjectHideFlags: 0
