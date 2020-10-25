@@ -4,9 +4,12 @@
 [RequireComponent(typeof(BoxCollider))]
 public class HighlightEffect : MonoBehaviour
 {
+    #region DEFINITIONS
     private Outline outline;
     private BoxCollider boxCollider;
+    #endregion
 
+    #region METHODS
     private void Awake()
     {
         outline = GetComponent<Outline>();
@@ -34,4 +37,8 @@ public class HighlightEffect : MonoBehaviour
     {
         outline.enabled = false;
     }
+    #endregion
+    #region CUSTOMMETHODS
+    public void SetOutlineStatus(bool status) => outline.enabled = status;
+    #endregion
 }
