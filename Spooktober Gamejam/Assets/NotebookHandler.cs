@@ -18,6 +18,8 @@ public class NotebookHandler : MonoBehaviour
     [SerializeField] private GameObject gameNotebook;
     public Notebooks notebook;
     public string notebookContents;
+    public bool notebookBeingAccess = false;
+
     #endregion
     #region METHODS
     public void AddToInventory(Collider other)
