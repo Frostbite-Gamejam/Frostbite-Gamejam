@@ -62,6 +62,7 @@ public class MainPlayer : MonoBehaviour
         }
     }
     #endregion
+
     #region CUSTOMMETHODS
     private void InteractableRaycastHighlight()
     {
