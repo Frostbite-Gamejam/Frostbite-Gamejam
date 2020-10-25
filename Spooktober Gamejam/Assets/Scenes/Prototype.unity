@@ -1624,7 +1624,6 @@ GameObject:
   - component: {fileID: 1566123721}
   - component: {fileID: 1566123723}
   - component: {fileID: 1566123722}
-  - component: {fileID: 1566123724}
   m_Layer: 5
   m_Name: TextBox
   m_TagString: Textbox
@@ -1690,18 +1689,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566123720}
   m_CullTransparentMesh: 0
---- !u!114 &1566123724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566123720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ff92fa24edd3ef4d91255856f2248dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1585153696
 GameObject:
   m_ObjectHideFlags: 0
