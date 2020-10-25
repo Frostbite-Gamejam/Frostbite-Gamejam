@@ -2,13 +2,17 @@
 
 public class MainPlayer : MonoBehaviour
 {
+    #region DEFINITIONS
+    public GameObject inventoryItem = null;
     public bool playerIsInteracting = false;
+    private float inputBufferCounter = 0f;
+    public KeyCode interactKey = KeyCode.E;
+    public KeyCode accessingNotebook = KeyCode.N;
 
     [SerializeField] private float inputBufferTarget = 0f;
-    private float inputBufferCounter = 0f;
+    #endregion
 
-    public KeyCode interactKey = KeyCode.E;
-
+    #region METHODS
     private void Start()
     {
         inputBufferCounter = inputBufferTarget;
@@ -18,16 +22,20 @@ public class MainPlayer : MonoBehaviour
     {
         inputBufferCounter = inputBufferCounter + 1 * Time.deltaTime;
         if (playerIsInteracting)
-        {
             inputBufferCounter = 0f;
-        }
+        if (Input.GetKey(accessingNotebook) && inputBufferCounter >= inputBufferTarget)
+            Debug.Log(inventoryItem.GetComponent<NotebookHandler>().notebookContents);
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (Input.GetKey(interactKey) && inputBufferCounter >= inputBufferTarget)
         {
+            Debug.Log($"Player is interacting");
             playerIsInteracting = true;
         }
+        else
+            Debug.Log($"No interactions are taking place");
     }
+    #endregion
 }
