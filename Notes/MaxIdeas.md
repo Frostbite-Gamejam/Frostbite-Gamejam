@@ -1,2 +1,2 @@
-# Use this document
+# Max's Ideas
 Okay
