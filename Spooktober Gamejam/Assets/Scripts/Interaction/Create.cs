@@ -11,6 +11,7 @@ public class Create : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+
         if (other.GetComponent<MainPlayer>().playerIsInteracting)
         {
             other.GetComponent<MainPlayer>().playerIsInteracting = false;
