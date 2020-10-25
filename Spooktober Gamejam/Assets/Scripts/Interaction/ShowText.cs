@@ -1,16 +1,27 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class ShowText : MonoBehaviour
+public class ShowText : MonoBehaviour {
 
-{
-    [SerializeField] private GameObject textBox;
-    [SerializeField] private Text text;
+    private GameObject textBox;
+    private Text text;
+
     [SerializeField] private string textBoxMsg;
     [SerializeField] private float waitTime;
+
     private bool isTextBoxActive = false;
+
+    private void Awake()
+    {
+        textBox = GameObject.FindGameObjectWithTag("Textbox");
+        text = GameObject.FindGameObjectWithTag("Textboxtext").GetComponent<Text>();
+    }
+
+    private void Start()
+    {
+        textBox.SetActive(false);
+    }
 
     private void OnTriggerStay(Collider other)
     {
