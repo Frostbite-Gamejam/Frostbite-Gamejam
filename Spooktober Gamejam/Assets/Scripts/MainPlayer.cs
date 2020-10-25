@@ -14,12 +14,14 @@ public class MainPlayer : MonoBehaviour
     private float inputBufferCounter = 0f;
     private bool objectHasBeenHighlighted = false;
     private HighlightEffect currentlyHighlightedItem = null;
+    private InteractionPrompt interactionPrompt;
     #endregion
 
     #region METHODS
     private void Awake()
     {
         playerCamera = GetComponentInChildren<Camera>();
+        interactionPrompt = GetComponent<InteractionPrompt>();
     }
     private void Start()
     {
@@ -38,10 +40,20 @@ public class MainPlayer : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (IsInLayerMask(other.gameObject.layer, interactableLayer)) // if 'other' is on the interactable layer
+        {
+            interactionPrompt.showPromptBox();
+        }
+
         if (Input.GetKey(interactKey) && inputBufferCounter >= inputBufferTarget)
         {
             playerIsInteracting = true;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        interactionPrompt.hidePromptBox();
     }
     #endregion
     #region CUSTOMMETHODS
@@ -65,6 +77,11 @@ public class MainPlayer : MonoBehaviour
         }
 
         Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward * viewHighlightDistance, Color.red);
+    }
+
+    private bool IsInLayerMask(int layer, LayerMask layermask)
+    {
+        return layermask == (layermask | (1 << layer));
     }
     #endregion
 }
