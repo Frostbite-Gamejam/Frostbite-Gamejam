@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 public class Door : MonoBehaviour
 {
     private Animator animator;
 
+    [SerializeField] private AudioMixerGroup mainMixer;
+    [SerializeField] private AudioClip doorLockedSound;
+    [SerializeField] private string lockedDoorMessage;
     [SerializeField] private bool keyRequired = false;
     [SerializeField] private GameObject linkedKey;
 
@@ -37,8 +41,7 @@ public class Door : MonoBehaviour
                 OpenDoor();
             } else if (keyRequired && linkedKey.activeInHierarchy)
             {
-                // TODO: play a nope sound and display some information in the ui that tells the player they need the key
-                Debug.Log("This door is locked you need the key");
+                Destroy(SoundManager.PlaySoundOneShot(gameObject, doorLockedSound, mainMixer, false, 1f), doorLockedSound.length);
             } else
             {
                 OpenDoor();

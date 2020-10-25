@@ -28,17 +28,22 @@ public class ShowText : MonoBehaviour {
         if (other.GetComponent<MainPlayer>().playerIsInteracting && !isTextBoxActive)
         {
             other.GetComponent<MainPlayer>().playerIsInteracting = false;
-            StartCoroutine(ShowTextBox());
+            StartCoroutine(ShowTextBox(textBoxMsg));
         }
     }
 
-    private IEnumerator ShowTextBox() {
-        text.text = textBoxMsg;
+    private IEnumerator ShowTextBox(string textContent) {
+        text.text = textContent;
         textBox.SetActive(true);
         isTextBoxActive = true;
         yield return new WaitForSeconds(waitTime);
         textBox.SetActive(false);
         isTextBoxActive = false;
-        StopCoroutine(ShowTextBox());
+        StopCoroutine(ShowTextBox(textBoxMsg));
+    }
+
+    public void DisplayText(string textContent)
+    {
+        StartCoroutine(ShowTextBox(textBoxMsg));
     }
 }
