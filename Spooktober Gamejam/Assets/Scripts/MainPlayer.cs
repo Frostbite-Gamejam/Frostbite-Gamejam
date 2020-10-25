@@ -27,6 +27,7 @@ public class MainPlayer : MonoBehaviour
     private void Start()
     {
         inputBufferCounter = inputBufferTarget;
+        audioMixer.SetFloat("Volume", -35f);
     }
 
     private void Update()
