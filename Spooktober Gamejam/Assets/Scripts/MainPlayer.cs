@@ -14,7 +14,7 @@ public class MainPlayer : MonoBehaviour
 
     public KeyCode interactKey = KeyCode.E;
     public bool playerIsInteracting = false;
-    private float mixerVolume = 0;
+    private float mixerVolume = -35f;
     private float inputBufferCounter = 0f;
     private bool objectHasBeenHighlighted = false;
     #endregion
@@ -27,7 +27,7 @@ public class MainPlayer : MonoBehaviour
     private void Start()
     {
         inputBufferCounter = inputBufferTarget;
-        audioMixer.SetFloat("Volume", -35f);
+        audioMixer.SetFloat("Volume", mixerVolume);
     }
 
     private void Update()
