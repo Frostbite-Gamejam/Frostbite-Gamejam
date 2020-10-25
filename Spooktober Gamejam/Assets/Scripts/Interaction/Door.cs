@@ -2,6 +2,7 @@
 
 public class Door : MonoBehaviour
 {
+    private Outline outline;
     private Animator animator;
 
     [SerializeField] private bool keyRequired = false;
@@ -10,6 +11,7 @@ public class Door : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        outline = GetComponent<Outline>();
     }
 
     private void OpenDoor()
@@ -29,6 +31,11 @@ public class Door : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.GetComponent<MainPlayer>())
+        {
+            outline.enabled = true;
+        }
+
         if (other.GetComponent<MainPlayer>().playerIsInteracting)
         {
             other.GetComponent<MainPlayer>().playerIsInteracting = false;
@@ -44,5 +51,10 @@ public class Door : MonoBehaviour
                 OpenDoor();
             }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        outline.enabled = false;
     }
 }
