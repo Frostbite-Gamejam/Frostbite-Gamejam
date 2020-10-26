@@ -9,11 +9,18 @@ public class MainPlayer : MonoBehaviour
     private Camera playerCamera;
 
     [SerializeField] private float viewHighlightDistance = 100;
-    [SerializeField] private float inputBufferTarget = 0f;
     [SerializeField] private LayerMask interactableLayer;
 
     public KeyCode interactKey = KeyCode.E;
     public bool playerIsInteracting = false;
+
+    private Camera playerCamera;
+    private float inputBufferTarget = 0.1f;
+    private float inputBufferCounter = 0f;
+    private bool objectHasBeenHighlighted = false;
+    private HighlightEffect currentlyHighlightedItem = null;
+    private InteractionPrompt interactionPrompt;
+    public string promptToDisplay;
     private float mixerVolume = -35f;
     private float inputBufferCounter = 0f;
     private bool objectHasBeenHighlighted = false;
@@ -23,6 +30,7 @@ public class MainPlayer : MonoBehaviour
     private void Awake()
     {
         playerCamera = GetComponentInChildren<Camera>();
+        interactionPrompt = GetComponent<InteractionPrompt>();
     }
     private void Start()
     {
@@ -54,12 +62,25 @@ public class MainPlayer : MonoBehaviour
         InteractableRaycastHighlight();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (IsInLayerMask(other.gameObject.layer, interactableLayer)) // if 'other' is on the interactable layer
+        {
+            interactionPrompt.showPromptBox(promptToDisplay);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (Input.GetKey(interactKey) && inputBufferCounter >= inputBufferTarget)
         {
             playerIsInteracting = true;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        interactionPrompt.hidePromptBox();
     }
     #endregion
     #region CUSTOMMETHODS
@@ -85,6 +106,21 @@ public class MainPlayer : MonoBehaviour
         Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward * viewHighlightDistance, Color.red);
     }
 
+    private bool IsInLayerMask(int layer, LayerMask layermask)
+    {
+        return layermask == (layermask | (1 << layer));
+    }
+
+    public void HideCurrentPrompt()
+    {
+        interactionPrompt.hidePromptBox();
+    }
+
+    public void ShowCurrentPrompt()
+    {
+        interactionPrompt.showPromptBox(promptToDisplay);
+    }
+    
     private void ChangeVolume(float value)
     {
         audioMixer.SetFloat("Volume", value);

@@ -2,6 +2,7 @@
 
 public class DisableObject : MonoBehaviour
 {
+    [SerializeField] private string interactionPrompt;
     [SerializeField] private GameObject objectToDisable;
 
     public void Disable()
@@ -9,12 +10,21 @@ public class DisableObject : MonoBehaviour
         objectToDisable.SetActive(false);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<MainPlayer>())
+        {
+            other.GetComponent<MainPlayer>().promptToDisplay = interactionPrompt;
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
-
         if (other.GetComponent<MainPlayer>().playerIsInteracting)
         {
-            other.GetComponent<MainPlayer>().playerIsInteracting = false;
+            MainPlayer mainPlayer = other.GetComponent<MainPlayer>();
+            mainPlayer.playerIsInteracting = false;
+            mainPlayer.HideCurrentPrompt();
             Disable();
         }
     }
