@@ -5,10 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Destroy
-  - Textbox
-  - Textboxtext
-  - PromptBox
-  - PromptBoxText
   - GameManager
   layers:
   - Default

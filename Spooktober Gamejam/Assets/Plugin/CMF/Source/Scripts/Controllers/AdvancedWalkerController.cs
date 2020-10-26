@@ -12,7 +12,7 @@ namespace CMF
         protected CeilingDetector ceilingDetector;
 
         //Jump key variables;
-        bool jumpInputIsLocked = false;
+        public bool jumpInputIsLocked = false;
         bool jumpKeyWasPressed = false;
         bool jumpKeyWasLetGo = false;
         bool jumpKeyIsPressed = false;
@@ -99,7 +99,10 @@ namespace CMF
                 jumpInputIsLocked = false;
             }
 
-            jumpKeyIsPressed = _newJumpKeyPressedState;
+            if (!jumpInputIsLocked)
+            {
+                jumpKeyIsPressed = _newJumpKeyPressedState;
+            }
         }
 
         void FixedUpdate()
