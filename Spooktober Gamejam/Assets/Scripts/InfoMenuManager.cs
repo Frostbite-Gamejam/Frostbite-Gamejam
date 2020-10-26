@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class InfoMenuManager : MonoBehaviour
 {
+    [SerializeField] private GameObject[] buttons;
     private AdvancedWalkerController advancedWalkerController;
     private CameraController cameraController;
     private MainPlayer mainPlayer;
@@ -12,7 +13,6 @@ public class InfoMenuManager : MonoBehaviour
 
     private float initialMovementSpeed = 0;
     private float initialCameraSpeed = 0;
-
     private bool infoMenuOpen;
 
     private void Awake()
@@ -28,6 +28,11 @@ public class InfoMenuManager : MonoBehaviour
         infoMenuContainer.SetActive(false);
         initialCameraSpeed = cameraController.cameraSpeed;
         initialMovementSpeed = advancedWalkerController.movementSpeed;
+
+        for (var i = 0; i <= buttons.Length; i++)
+        {
+            buttons[i].SetActive(false);
+        }
     }
 
     private void Update()
@@ -51,5 +56,10 @@ public class InfoMenuManager : MonoBehaviour
             infoMenuContainer.SetActive(true);
             infoMenuOpen = true;
         }
+    }
+
+    public void ShowButton(int index)
+    {
+        buttons[index].SetActive(true);
     }
 }

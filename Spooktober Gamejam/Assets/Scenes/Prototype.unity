@@ -3823,6 +3823,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d44f0b671838cb45b65c3ec5c66c5a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1138236228}
+  - {fileID: 810985525}
+  - {fileID: 1749661953}
+  - {fileID: 1316166773}
+  - {fileID: 78113126}
   infoMenuContainer: {fileID: 1636038329}
   infoMenuKey: 102
 --- !u!1 &850826636
