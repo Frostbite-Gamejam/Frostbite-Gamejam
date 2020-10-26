@@ -1,25 +1,19 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using TMPro;
+using UnityEngine;
 
 public class InteractionPrompt : MonoBehaviour
 {
-    private GameObject promptBox;
-    private Text promptBoxText;
+    [SerializeField] private GameObject promptBox;
+    [SerializeField] private TextMeshProUGUI promptBoxText;
     private bool promptShowing;
-
-    private void Awake()
-    {
-        promptBox = GameObject.FindGameObjectWithTag("PromptBox");
-        promptBoxText = GameObject.FindGameObjectWithTag("PromptBoxText").GetComponent<Text>();
-        promptShowing = false;
-    }
 
     private void Start()
     {
+        promptShowing = false;
         promptBox.SetActive(false);
     }
 
-    public void showPromptBox(string message)
+    public void ShowPromptBox(string message)
     {
         promptBoxText.text = message;
         promptBox.SetActive(true);
@@ -27,7 +21,7 @@ public class InteractionPrompt : MonoBehaviour
         Debug.Log("Prompt Shown");
     }
 
-    public void hidePromptBox()
+    public void HidePromptBox()
     {
         if (promptShowing)
         {

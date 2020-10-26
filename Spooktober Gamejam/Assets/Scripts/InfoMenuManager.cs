@@ -29,7 +29,7 @@ public class InfoMenuManager : MonoBehaviour
         initialCameraSpeed = cameraController.cameraSpeed;
         initialMovementSpeed = advancedWalkerController.movementSpeed;
 
-        for (var i = 0; i <= buttons.Length; i++)
+        for (var i = 0; i < buttons.Length; i++)
         {
             buttons[i].SetActive(false);
         }

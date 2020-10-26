@@ -7,12 +7,15 @@ public class MainPlayer : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer;
     private HighlightEffect currentlyHighlightedItem = null;
     private Camera playerCamera;
+    private InteractionPrompt interactionPrompt;
 
     [SerializeField] private float viewHighlightDistance = 100;
     [SerializeField] private float inputBufferTarget = 0f;
     [SerializeField] private LayerMask interactableLayer;
+
     [HideInInspector] public bool playerIsInteracting = false;
     [HideInInspector] public bool canInteract = true;
+    [HideInInspector] public string promptToDisplay;
 
     public KeyCode interactKey = KeyCode.E;
 
@@ -25,6 +28,7 @@ public class MainPlayer : MonoBehaviour
     private void Awake()
     {
         playerCamera = GetComponentInChildren<Camera>();
+        interactionPrompt = GetComponent<InteractionPrompt>();
     }
     private void Start()
     {
@@ -56,11 +60,27 @@ public class MainPlayer : MonoBehaviour
         InteractableRaycastHighlight();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (IsInLayerMask(other.gameObject.layer, interactableLayer))
+        {
+            interactionPrompt.ShowPromptBox(promptToDisplay);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (Input.GetKey(interactKey) && inputBufferCounter >= inputBufferTarget && canInteract)
         {
             playerIsInteracting = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (IsInLayerMask(other.gameObject.layer, interactableLayer))
+        {
+            interactionPrompt.HidePromptBox();
         }
     }
     #endregion
@@ -88,9 +108,24 @@ public class MainPlayer : MonoBehaviour
         Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward * viewHighlightDistance, Color.red);
     }
 
+    private bool IsInLayerMask(int layer, LayerMask layermask)
+    {
+        return layermask == (layermask | (1 << layer));
+    }
+
     private void ChangeVolume(float value)
     {
         audioMixer.SetFloat("Volume", value);
+    }
+
+    public void HideCurrentPrompt()
+    {
+        interactionPrompt.HidePromptBox();
+    }
+
+    public void UpdateCurrentPrompt(string message)
+    {
+        interactionPrompt.ShowPromptBox(message);
     }
     #endregion
 }

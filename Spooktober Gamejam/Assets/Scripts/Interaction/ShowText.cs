@@ -29,7 +29,9 @@ public class ShowText : MonoBehaviour {
     {
         if (other.GetComponent<MainPlayer>().playerIsInteracting && !isTextBoxActive)
         {
-            other.GetComponent<MainPlayer>().playerIsInteracting = false;
+            MainPlayer mainPlayer = other.GetComponent<MainPlayer>();
+            mainPlayer.HideCurrentPrompt();
+            mainPlayer.playerIsInteracting = false;
             StartCoroutine(ShowTextBox(textBoxMsg));
         }
     }
