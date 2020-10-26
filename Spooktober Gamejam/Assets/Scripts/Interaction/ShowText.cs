@@ -23,14 +23,16 @@ public class ShowText : MonoBehaviour {
     {
         textBox.SetActive(false);
     }
-
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<MainPlayer>())
         {
             other.GetComponent<MainPlayer>().promptToDisplay = interactionPrompt;
         }
+    }
 
+    private void OnTriggerStay(Collider other)
+    {
         if (other.GetComponent<MainPlayer>().playerIsInteracting && !isTextBoxActive)
         {
             other.GetComponent<MainPlayer>().playerIsInteracting = false;

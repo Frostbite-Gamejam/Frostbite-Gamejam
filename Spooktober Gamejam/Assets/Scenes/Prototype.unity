@@ -1124,7 +1124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9830d64628ca14fae1c0a538b7fa88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionPrompt: Press E to open door
+  openDoorPrompt: Press E to open door
+  closeDoorPrompt: Press E to close door
   keyRequired: 1
   linkedKey: {fileID: 1997430788}
 --- !u!65 &1173650176
@@ -1218,7 +1219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a34c1744eef6e4c9747d00f9608cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionPrompt: Press E to say "eeeeeeeeeeeeeeeeee"
+  interactionPrompt: Press E to say 'eeeeeeeeeeeeeeeeeeeeeeeeeeeee'
   textBoxMsg: eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
   waitTime: 3
 --- !u!114 &1333327111
@@ -2168,7 +2169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -120}
+  m_AnchoredPosition: {x: 0, y: -165}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2132633710
@@ -2506,7 +2507,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewHighlightDistance: 100
-  inputBufferTarget: 13.59
   interactableLayer:
     serializedVersion: 2
     m_Bits: 512

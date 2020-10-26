@@ -10,13 +10,16 @@ public class DisableObject : MonoBehaviour
         objectToDisable.SetActive(false);
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<MainPlayer>())
         {
             other.GetComponent<MainPlayer>().promptToDisplay = interactionPrompt;
         }
+    }
 
+    private void OnTriggerStay(Collider other)
+    {
         if (other.GetComponent<MainPlayer>().playerIsInteracting)
         {
             MainPlayer mainPlayer = other.GetComponent<MainPlayer>();

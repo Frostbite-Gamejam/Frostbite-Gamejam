@@ -4,13 +4,13 @@ public class MainPlayer : MonoBehaviour
 {
     #region DEFINTIONS
     [SerializeField] private float viewHighlightDistance = 100;
-    [SerializeField] private float inputBufferTarget = 0f;
     [SerializeField] private LayerMask interactableLayer;
 
     public KeyCode interactKey = KeyCode.E;
     public bool playerIsInteracting = false;
 
     private Camera playerCamera;
+    private float inputBufferTarget = 0.1f;
     private float inputBufferCounter = 0f;
     private bool objectHasBeenHighlighted = false;
     private HighlightEffect currentlyHighlightedItem = null;
@@ -39,13 +39,16 @@ public class MainPlayer : MonoBehaviour
         InteractableRaycastHighlight();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (IsInLayerMask(other.gameObject.layer, interactableLayer)) // if 'other' is on the interactable layer
         {
             interactionPrompt.showPromptBox(promptToDisplay);
         }
+    }
 
+    private void OnTriggerStay(Collider other)
+    {
         if (Input.GetKey(interactKey) && inputBufferCounter >= inputBufferTarget)
         {
             playerIsInteracting = true;
@@ -88,6 +91,11 @@ public class MainPlayer : MonoBehaviour
     public void HideCurrentPrompt()
     {
         interactionPrompt.hidePromptBox();
+    }
+
+    public void ShowCurrentPrompt()
+    {
+        interactionPrompt.showPromptBox(promptToDisplay);
     }
     #endregion
 }
