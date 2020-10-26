@@ -7,6 +7,8 @@ TagManager:
   - Destroy
   - Textbox
   - Textboxtext
+  - PromptBox
+  - PromptBoxText
   layers:
   - Default
   - TransparentFX
