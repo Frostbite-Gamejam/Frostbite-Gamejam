@@ -7,6 +7,7 @@ public class Door : MonoBehaviour
 
     [SerializeField] private AudioMixerGroup mainMixer;
     [SerializeField] private AudioClip doorLockedSound;
+    [SerializeField] private AudioClip doorSwingSound;
     [SerializeField] private string lockedDoorMessage;
     [SerializeField] private bool keyRequired = false;
     [SerializeField] private GameObject linkedKey;
@@ -16,17 +17,19 @@ public class Door : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void OpenDoor()
+    private void ToggleDoor()
     {
         if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
         {
             if (animator.GetInteger("doorState") == -1 || animator.GetInteger("doorState") == 1)
             {
                 animator.SetInteger("doorState", 0);
+                Destroy(SoundManager.PlaySoundOneShot(gameObject, doorSwingSound, mainMixer, false, false, 0f), doorLockedSound.length);
             }
             else
             {
                 animator.SetInteger("doorState", 1);
+                Destroy(SoundManager.PlaySoundOneShot(gameObject, doorSwingSound, mainMixer, false, false, 0f), doorLockedSound.length);
             }
         }
     }
@@ -38,13 +41,13 @@ public class Door : MonoBehaviour
             other.GetComponent<MainPlayer>().playerIsInteracting = false;
             if (keyRequired && !linkedKey.activeInHierarchy)
             {
-                OpenDoor();
+                ToggleDoor();
             } else if (keyRequired && linkedKey.activeInHierarchy)
             {
-                Destroy(SoundManager.PlaySoundOneShot(gameObject, doorLockedSound, mainMixer, false, false, 1f), doorLockedSound.length);
+                Destroy(SoundManager.PlaySoundOneShot(gameObject, doorLockedSound, mainMixer, false, false, 0f), doorLockedSound.length);
             } else
             {
-                OpenDoor();
+                ToggleDoor();
             }
         }
     }
