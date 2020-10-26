@@ -18,7 +18,6 @@ public class InteractionPrompt : MonoBehaviour
         promptBoxText.text = message;
         promptBox.SetActive(true);
         promptShowing = true;
-        Debug.Log("Prompt Shown");
     }
 
     public void HidePromptBox()
@@ -28,7 +27,6 @@ public class InteractionPrompt : MonoBehaviour
             promptBoxText.text = "";
             promptBox.SetActive(false);
             promptShowing = false;
-            Debug.Log("Prompt Hidden");
         }
     }
 }
