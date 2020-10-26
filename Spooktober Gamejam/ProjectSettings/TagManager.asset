@@ -9,6 +9,7 @@ TagManager:
   - Textboxtext
   - PromptBox
   - PromptBoxText
+  - GameManager
   layers:
   - Default
   - TransparentFX

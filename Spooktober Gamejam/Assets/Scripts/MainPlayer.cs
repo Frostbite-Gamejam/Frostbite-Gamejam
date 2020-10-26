@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 public class MainPlayer : MonoBehaviour
 {
     #region DEFINTIONS
+    [SerializeField] private AudioMixer audioMixer;
+    private HighlightEffect currentlyHighlightedItem = null;
+    private Camera playerCamera;
+
     [SerializeField] private float viewHighlightDistance = 100;
     [SerializeField] private LayerMask interactableLayer;
 
@@ -16,6 +21,9 @@ public class MainPlayer : MonoBehaviour
     private HighlightEffect currentlyHighlightedItem = null;
     private InteractionPrompt interactionPrompt;
     public string promptToDisplay;
+    private float mixerVolume = -35f;
+    private float inputBufferCounter = 0f;
+    private bool objectHasBeenHighlighted = false;
     #endregion
 
     #region METHODS
@@ -27,6 +35,20 @@ public class MainPlayer : MonoBehaviour
     private void Start()
     {
         inputBufferCounter = inputBufferTarget;
+        audioMixer.SetFloat("Volume", mixerVolume);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.LeftBracket))
+        {
+            mixerVolume = mixerVolume - 0.5f;
+            ChangeVolume(mixerVolume);
+        } else if (Input.GetKey(KeyCode.RightBracket))
+        {
+            mixerVolume = mixerVolume + 0.5f;
+            ChangeVolume(mixerVolume);
+        }
     }
 
     private void FixedUpdate()
@@ -36,6 +58,7 @@ public class MainPlayer : MonoBehaviour
         {
             inputBufferCounter = 0f;
         }
+
         InteractableRaycastHighlight();
     }
 
@@ -96,6 +119,11 @@ public class MainPlayer : MonoBehaviour
     public void ShowCurrentPrompt()
     {
         interactionPrompt.showPromptBox(promptToDisplay);
+    }
+    
+    private void ChangeVolume(float value)
+    {
+        audioMixer.SetFloat("Volume", value);
     }
     #endregion
 }
