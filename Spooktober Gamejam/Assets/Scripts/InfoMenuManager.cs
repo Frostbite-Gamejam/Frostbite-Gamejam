@@ -4,11 +4,11 @@ using UnityEngine;
 public class InfoMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] buttons;
+    [SerializeField] private GameObject infoMenuContainer;
     private AdvancedWalkerController advancedWalkerController;
     private CameraController cameraController;
     private MainPlayer mainPlayer;
 
-    [SerializeField] private GameObject infoMenuContainer;
     [SerializeField] private KeyCode infoMenuKey = KeyCode.F;
 
     private float initialMovementSpeed = 0;
@@ -17,10 +17,9 @@ public class InfoMenuManager : MonoBehaviour
 
     private void Awake()
     {
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        advancedWalkerController = playerObject.GetComponent<AdvancedWalkerController>();
-        cameraController = playerObject.GetComponentInChildren<CameraController>();
-        mainPlayer = playerObject.GetComponent<MainPlayer>();
+        advancedWalkerController = GetComponent<AdvancedWalkerController>();
+        cameraController = GetComponentInChildren<CameraController>();
+        mainPlayer = GetComponent<MainPlayer>();
     }
 
     void Start()
