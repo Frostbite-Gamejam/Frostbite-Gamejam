@@ -41,7 +41,7 @@ public class Door : MonoBehaviour
                 OpenDoor();
             } else if (keyRequired && linkedKey.activeInHierarchy)
             {
-                Destroy(SoundManager.PlaySoundOneShot(gameObject, doorLockedSound, mainMixer, false, 1f), doorLockedSound.length);
+                Destroy(SoundManager.PlaySoundOneShot(gameObject, doorLockedSound, mainMixer, false, false, 1f), doorLockedSound.length);
             } else
             {
                 OpenDoor();

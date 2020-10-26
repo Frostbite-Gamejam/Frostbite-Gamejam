@@ -11,9 +11,11 @@ public class MainPlayer : MonoBehaviour
     [SerializeField] private float viewHighlightDistance = 100;
     [SerializeField] private float inputBufferTarget = 0f;
     [SerializeField] private LayerMask interactableLayer;
+    [HideInInspector] public bool playerIsInteracting = false;
+    [HideInInspector] public bool canInteract = true;
 
     public KeyCode interactKey = KeyCode.E;
-    public bool playerIsInteracting = false;
+
     private float mixerVolume = -35f;
     private float inputBufferCounter = 0f;
     private bool objectHasBeenHighlighted = false;
@@ -56,7 +58,7 @@ public class MainPlayer : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKey(interactKey) && inputBufferCounter >= inputBufferTarget)
+        if (Input.GetKey(interactKey) && inputBufferCounter >= inputBufferTarget && canInteract)
         {
             playerIsInteracting = true;
         }
