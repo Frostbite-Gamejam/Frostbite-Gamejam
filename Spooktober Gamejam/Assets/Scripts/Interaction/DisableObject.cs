@@ -19,7 +19,9 @@ public class DisableObject : MonoBehaviour
 
         if (other.GetComponent<MainPlayer>().playerIsInteracting)
         {
-            other.GetComponent<MainPlayer>().playerIsInteracting = false;
+            MainPlayer mainPlayer = other.GetComponent<MainPlayer>();
+            mainPlayer.playerIsInteracting = false;
+            mainPlayer.HideCurrentPrompt();
             Disable();
         }
     }

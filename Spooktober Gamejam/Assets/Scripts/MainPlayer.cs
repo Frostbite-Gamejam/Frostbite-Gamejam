@@ -84,5 +84,10 @@ public class MainPlayer : MonoBehaviour
     {
         return layermask == (layermask | (1 << layer));
     }
+
+    public void HideCurrentPrompt()
+    {
+        interactionPrompt.hidePromptBox();
+    }
     #endregion
 }

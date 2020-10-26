@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class InteractionPrompt : MonoBehaviour
@@ -28,6 +24,7 @@ public class InteractionPrompt : MonoBehaviour
         promptBoxText.text = message;
         promptBox.SetActive(true);
         promptShowing = true;
+        Debug.Log("Prompt Shown");
     }
 
     public void hidePromptBox()
@@ -37,6 +34,7 @@ public class InteractionPrompt : MonoBehaviour
             promptBoxText.text = "";
             promptBox.SetActive(false);
             promptShowing = false;
+            Debug.Log("Prompt Hidden");
         }
     }
 }
