@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class ShowText : MonoBehaviour {
 
-    private GameObject textBox;
-    private Text text;
+    [SerializeField] private GameObject textBox;
+    [SerializeField] private Text text;
 
     [SerializeField] private string textBoxMsg;
     [SerializeField] private float waitTime;
 
     private bool isTextBoxActive = false;
-
-    private void Awake()
-    {
-        textBox = GameObject.FindGameObjectWithTag("Textbox");
-        text = GameObject.FindGameObjectWithTag("Textboxtext").GetComponent<Text>();
-    }
 
     private void Start()
     {
