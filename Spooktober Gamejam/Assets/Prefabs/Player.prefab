@@ -175,13 +175,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 9f4d4ccfaae094743981e106222aa18f, type: 2}
-  viewHighlightDistance: 100
-  inputBufferTarget: 0.1
   interactableLayer:
     serializedVersion: 2
     m_Bits: 512
-  playerIsInteracting: 0
   canInteract: 1
+  playerIsInteracting: 0
   promptToDisplay: 
   interactKey: 101
 --- !u!114 &7170984964387421101
@@ -216,6 +214,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   infoMenuContainer: {fileID: 0}
+  thoughtTextBox: {fileID: 0}
   infoMenuKey: 102
 --- !u!82 &7108457872598209507
 AudioSource:

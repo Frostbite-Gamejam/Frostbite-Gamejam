@@ -5,6 +5,7 @@ public class InfoMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] buttons;
     [SerializeField] private GameObject infoMenuContainer;
+    [SerializeField] private GameObject thoughtTextBox;
     private AdvancedWalkerController advancedWalkerController;
     private CameraController cameraController;
     private MainPlayer mainPlayer;
@@ -54,6 +55,7 @@ public class InfoMenuManager : MonoBehaviour
             mainPlayer.canInteract = false;
             infoMenuContainer.SetActive(true);
             infoMenuOpen = true;
+            thoughtTextBox.SetActive(false);
         }
     }
 

@@ -672,6 +672,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2324939201427655290}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &815132872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2324939201151212666, guid: f5f44f0dd5552584c88c36492306208d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2324939201427655290}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &850826636
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +1004,7 @@ GameObject:
   - component: {fileID: 1333327113}
   - component: {fileID: 1333327112}
   - component: {fileID: 1333327110}
+  - component: {fileID: 1333327116}
   - component: {fileID: 1333327115}
   - component: {fileID: 1333327114}
   - component: {fileID: 1333327111}
@@ -1045,6 +1052,7 @@ MonoBehaviour:
     Proin lobortis semper feugiat. Donec convallis massa at felis mollis, nec dictum
     est tincidunt. Duis tristique dolor non ex dapibus egestas vel ac sapien.
   waitTime: 3
+  isTextBoxActive: 0
 --- !u!114 &1333327111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1135,6 +1143,22 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &1333327116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333327108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 958bf0f876a1ec34abed542485330d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showText: {fileID: 1333327110}
+  blurbsToReveal:
+  - {fileID: 1859527210}
+  - {fileID: 815132872}
 --- !u!1 &1341726990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,6 +1549,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1859527210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2324939202204434823, guid: f5f44f0dd5552584c88c36492306208d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2324939201427655290}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1997430788
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,6 +2134,11 @@ PrefabInstance:
       propertyPath: infoMenuContainer
       value: 
       objectReference: {fileID: 1636038329}
+    - target: {fileID: 7170984964387421100, guid: 9203854bf13874241862b17ca3299431,
+        type: 3}
+      propertyPath: thoughtTextBox
+      value: 
+      objectReference: {fileID: 1566123720}
     - target: {fileID: 7170984964387421101, guid: 9203854bf13874241862b17ca3299431,
         type: 3}
       propertyPath: promptBox

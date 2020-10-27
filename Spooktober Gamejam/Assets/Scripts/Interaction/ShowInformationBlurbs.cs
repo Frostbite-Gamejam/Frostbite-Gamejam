@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class Create : MonoBehaviour
+public class ShowInformationBlurbs : MonoBehaviour
 {
     private MainPlayer mainPlayer;
-    [SerializeField] private string interactionPrompt;
-    [SerializeField] private GameObject objectToCreate;
-    private bool playerIsInTrigger = false;
+    [SerializeField] private ShowText showText;
+    [SerializeField] private GameObject[] blurbsToReveal;
+    private bool playerIsInTrigger;
 
     private void Awake()
     {
@@ -16,21 +16,15 @@ public class Create : MonoBehaviour
     {
         if (mainPlayer.playerIsInteracting && playerIsInTrigger)
         {
-            mainPlayer.HideCurrentPrompt();
-            CreateObject();
+            ShowInfo();
         }
     }
 
-    public void CreateObject()
+    private void ShowInfo()
     {
-        Instantiate(objectToCreate, new Vector3(0, 10, 0), Quaternion.identity);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<MainPlayer>())
+        for (var i = 0; i < blurbsToReveal.Length; i++)
         {
-            other.GetComponent<MainPlayer>().promptToDisplay = interactionPrompt;
+            blurbsToReveal[i].SetActive(true);
         }
     }
 
@@ -39,7 +33,8 @@ public class Create : MonoBehaviour
         if (other.GetComponent<MainPlayer>())
         {
             playerIsInTrigger = true;
-        } else
+        }
+        else
         {
             playerIsInTrigger = false;
         }
