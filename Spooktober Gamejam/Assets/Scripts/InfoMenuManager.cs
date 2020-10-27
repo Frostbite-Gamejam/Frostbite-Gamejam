@@ -42,7 +42,6 @@ public class InfoMenuManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             advancedWalkerController.movementSpeed = initialMovementSpeed;
             cameraController.cameraSpeed = initialCameraSpeed;
-            advancedWalkerController.jumpInputIsLocked = false;
             mainPlayer.canInteract = true;
             infoMenuContainer.SetActive(false);
             infoMenuOpen = false;
@@ -51,7 +50,6 @@ public class InfoMenuManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             advancedWalkerController.movementSpeed = 0f;
             cameraController.cameraSpeed = 0f;
-            advancedWalkerController.jumpInputIsLocked = true;
             mainPlayer.canInteract = false;
             infoMenuContainer.SetActive(true);
             infoMenuOpen = true;

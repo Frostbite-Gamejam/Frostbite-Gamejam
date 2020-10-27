@@ -1555,6 +1555,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2324939201427655290}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1962856031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1962856031, guid: f5f44f0dd5552584c88c36492306208d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2324939201427655290}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1997430788
 GameObject:
   m_ObjectHideFlags: 0
@@ -2024,7 +2030,7 @@ PrefabInstance:
     - target: {fileID: 2324939202286477909, guid: f5f44f0dd5552584c88c36492306208d,
         type: 3}
       propertyPath: m_Name
-      value: Player GUI
+      value: Player HUD
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5f44f0dd5552584c88c36492306208d, type: 3}
@@ -2097,6 +2103,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 454ff9f9df2e6904682845299b2c9c90, type: 3}
+--- !u!1 &7207420458177576567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7207420458177576567, guid: 9203854bf13874241862b17ca3299431,
+    type: 3}
+  m_PrefabInstance: {fileID: 7614608696502447377}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7614608696502447377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2203,6 +2215,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207420458177576567, guid: 9203854bf13874241862b17ca3299431,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121555059480319581, guid: 9203854bf13874241862b17ca3299431,
+        type: 3}
+      propertyPath: notebookKey
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121555059480319581, guid: 9203854bf13874241862b17ca3299431,
+        type: 3}
+      propertyPath: notebookBackground
+      value: 
+      objectReference: {fileID: 7207420458177576567}
+    - target: {fileID: 8121555059480319581, guid: 9203854bf13874241862b17ca3299431,
+        type: 3}
+      propertyPath: notebookUIParent
+      value: 
+      objectReference: {fileID: 1962856031}
+    - target: {fileID: 8121555059480319581, guid: 9203854bf13874241862b17ca3299431,
+        type: 3}
+      propertyPath: roomOneQuestionOne
+      value: What is this place where am i
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121555059480319581, guid: 9203854bf13874241862b17ca3299431,
+        type: 3}
+      propertyPath: roomOneAnswerOne
+      value: Ohio
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9203854bf13874241862b17ca3299431, type: 3}
