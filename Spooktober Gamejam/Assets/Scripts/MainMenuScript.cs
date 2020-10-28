@@ -16,7 +16,6 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("Main Level");
     }
-
     public void QuitGame()
     {
         Debug.Log("Quit!");

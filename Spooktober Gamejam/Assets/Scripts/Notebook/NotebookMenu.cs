@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class NotebookMenu : MonoBehaviour
 {
+
     private AdvancedWalkerController advancedWalkerController;
     private CameraController cameraController;
     private MainPlayer mainPlayer;
     private InfoMenuManager infoMenuManager;
+
+    //info menu
+    [SerializeField] private GameObject[] buttons;
+    [SerializeField] private GameObject infoMenuContainer;
+    [SerializeField] private GameObject thoughtTextBox;
+
+    //notebook
     [SerializeField] private TMP_InputField firstInputField;
     [SerializeField] private GameObject notebookBackground;
     [SerializeField] private GameObject notebookUIParent;
