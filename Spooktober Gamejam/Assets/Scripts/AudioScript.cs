@@ -10,12 +10,21 @@ public class AudioScript : MonoBehaviour
     [SerializeField] private Text audioNum;
     void Start()
     {
-        audioMixer.SetFloat("Volume", mixerVolume);
+        mixerVolume = SettingsManager.instance.volume;
+        //audioMixer.SetFloat("Volume", mixerVolume);
+        //audioNum.text = (mixerVolume + 80).ToString();
     }
+    //void Update()
+    //{
+        //mixerVolume = SettingsManager.instance.volume;
+        //audioSlider.value = mixerVolume;
+        //audioNum.text = (mixerVolume + 80).ToString();
+    //}
     public void ChangeVolume()
     {
         mixerVolume = audioSlider.value;
         audioMixer.SetFloat("Volume", mixerVolume);
         audioNum.text = (mixerVolume + 80).ToString();
+        SettingsManager.instance.volume = mixerVolume;
     }
 }

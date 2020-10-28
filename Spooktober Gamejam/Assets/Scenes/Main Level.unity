@@ -730,11 +730,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player GUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4459590650765690097, guid: f5f44f0dd5552584c88c36492306208d,
+        type: 3}
+      propertyPath: m_Text
+      value: Sensitivity
+      objectReference: {fileID: 0}
     - target: {fileID: 4459590651089783665, guid: f5f44f0dd5552584c88c36492306208d,
         type: 3}
       propertyPath: mouseInputScript
       value: 
       objectReference: {fileID: 1149757969}
+    - target: {fileID: 4459590651761382412, guid: f5f44f0dd5552584c88c36492306208d,
+        type: 3}
+      propertyPath: m_Text
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459590651889531718, guid: f5f44f0dd5552584c88c36492306208d,
+        type: 3}
+      propertyPath: m_Text
+      value: Volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459590651981657526, guid: f5f44f0dd5552584c88c36492306208d,
+        type: 3}
+      propertyPath: m_Text
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5f44f0dd5552584c88c36492306208d, type: 3}
 --- !u!1001 &4726363292355896765
@@ -858,6 +878,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558641014687175131, guid: 9203854bf13874241862b17ca3299431,
+        type: 3}
+      propertyPath: mouseInputMultiplier
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9203854bf13874241862b17ca3299431, type: 3}

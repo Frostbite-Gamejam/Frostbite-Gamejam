@@ -19,7 +19,6 @@ namespace CMF
         //Use this value to fine-tune mouse movement;
         //All mouse input will be multiplied by this value;
         public float mouseInputMultiplier = 0.01f;
-
 	    public override float GetHorizontalCameraInput()
         {
             //Get raw mouse input;
