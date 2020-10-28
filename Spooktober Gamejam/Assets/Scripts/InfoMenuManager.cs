@@ -51,7 +51,6 @@ public class InfoMenuManager : MonoBehaviour
         {
             notebookMenu.DisableNoteBook();
             EnableInfoMenu();
-            Debug.Log("Disabling Info Menu");
         }
     }
 

@@ -63,7 +63,6 @@ public class NotebookMenu : MonoBehaviour
                 DisableNoteBook();
                 notebookHiddenFirstLevel = true;
             }
-            Debug.Log("First Level Is Clear");
         }
 
         if (secondLevel.levelIsClear)
@@ -75,7 +74,6 @@ public class NotebookMenu : MonoBehaviour
                 DisableNoteBook();
                 notebookHiddenSecondLevel = true;
             }
-            Debug.Log("Second Level Is Clear");
         }
 
         if (thirdLevel.levelIsClear)
@@ -87,7 +85,6 @@ public class NotebookMenu : MonoBehaviour
                 DisableNoteBook();
                 notebookHiddenThirdLevel = true;
             }
-            Debug.Log("Third Level Is Clear");
         }
 
         if (forthLevel.levelIsClear)
@@ -99,7 +96,6 @@ public class NotebookMenu : MonoBehaviour
                 DisableNoteBook();
                 notebookHiddenForthLevel = true;
             }
-            Debug.Log("Forth Level Is Clear");
         }
 
         if (fifthLevel.levelIsClear)
@@ -109,7 +105,6 @@ public class NotebookMenu : MonoBehaviour
                 DisableNoteBook();
                 notebookHiddenFifthLevel = true;
             }
-            Debug.Log("Fifth Level Is Clear You Have Completed The Game");
         }
 
         if (Input.GetKeyDown(notebookKey) && notebookIsOpen)
@@ -124,7 +119,6 @@ public class NotebookMenu : MonoBehaviour
         {
             infoMenuManager.DisableInfoMenu();
             EnableNoteBook();
-            Debug.Log("Disabling Notebook Menu");
         }
     }
 
