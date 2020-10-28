@@ -2,8 +2,24 @@
 
 public class DisableObject : MonoBehaviour
 {
+    private MainPlayer mainPlayer;
     [SerializeField] private string interactionPrompt;
     [SerializeField] private GameObject objectToDisable;
+    private bool playerIsInTrigger = false;
+
+    private void Awake()
+    {
+        mainPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<MainPlayer>();
+    }
+
+    private void Update()
+    {
+        if (mainPlayer.playerIsInteracting && playerIsInTrigger)
+        {
+            mainPlayer.HideCurrentPrompt();
+            Disable();
+        }
+    }
 
     public void Disable()
     {
@@ -20,12 +36,21 @@ public class DisableObject : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<MainPlayer>().playerIsInteracting)
+        if (other.GetComponent<MainPlayer>())
         {
-            MainPlayer mainPlayer = other.GetComponent<MainPlayer>();
-            mainPlayer.playerIsInteracting = false;
-            mainPlayer.HideCurrentPrompt();
-            Disable();
+            playerIsInTrigger = true;
+            
+        } else
+        {
+            playerIsInTrigger = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<MainPlayer>())
+        {
+            playerIsInTrigger = false;
         }
     }
 }

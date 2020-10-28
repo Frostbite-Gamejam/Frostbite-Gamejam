@@ -2,7 +2,10 @@
 using UnityEngine.UI;
 using UnityEngine;
 
-public class ShowText : MonoBehaviour {
+public class ShowText : MonoBehaviour 
+{
+
+    private MainPlayer mainPlayer;
 
     [SerializeField] private GameObject textBox;
     [SerializeField] private Text text;
@@ -11,12 +14,28 @@ public class ShowText : MonoBehaviour {
     [SerializeField] private string textBoxMsg;
     [SerializeField] private float waitTime;
 
-    private bool isTextBoxActive = false;
+    public bool isTextBoxActive = false;
+    private bool playerIsInTrigger;
+
+    private void Awake()
+    {
+        mainPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<MainPlayer>();
+    }
 
     private void Start()
     {
         textBox.SetActive(false);
     }
+
+    private void Update()
+    {
+        if (mainPlayer.playerIsInteracting && playerIsInTrigger)
+        {
+            mainPlayer.HideCurrentPrompt();
+            StartCoroutine(ShowTextBox(textBoxMsg));
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<MainPlayer>())
@@ -27,12 +46,20 @@ public class ShowText : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<MainPlayer>().playerIsInteracting && !isTextBoxActive)
+        if (other.GetComponent<MainPlayer>() && !isTextBoxActive)
         {
-            MainPlayer mainPlayer = other.GetComponent<MainPlayer>();
-            mainPlayer.HideCurrentPrompt();
-            mainPlayer.playerIsInteracting = false;
-            StartCoroutine(ShowTextBox(textBoxMsg));
+            playerIsInTrigger = true;
+        } else
+        {
+            playerIsInTrigger = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<MainPlayer>())
+        {
+            playerIsInTrigger = false;
         }
     }
 
