@@ -6,13 +6,12 @@ public class MainPlayer : MonoBehaviour
 {
     #region DEFINTIONS
     private InteractionPrompt interactionPrompt;
-    [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private LayerMask interactableLayer;
     [HideInInspector] public bool canInteract = true;
     [HideInInspector] public bool playerIsInteracting = false;
     [HideInInspector] public string promptToDisplay;
-    public KeyCode interactKey = KeyCode.E;
-    private float mixerVolume = -35f;
+    [SerializeField] private KeyCode interactKey;
+    [SerializeField] private KeyCode pauseKey;
     #endregion
 
     #region METHODS
@@ -20,30 +19,27 @@ public class MainPlayer : MonoBehaviour
     {
         interactionPrompt = GetComponent<InteractionPrompt>();
     }
-    private void Start()
-    {
-        audioMixer.SetFloat("Volume", mixerVolume);
-    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && canInteract)
+        if (Input.GetKeyDown(interactKey) && canInteract)
         {
             playerIsInteracting = true;
-        } else
+        } 
+        else
         {
             playerIsInteracting = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftBracket))
+        if (Input.GetKeyDown(pauseKey) && canInteract)
         {
-            mixerVolume = mixerVolume - 0.5f;
-            ChangeVolume(mixerVolume);
-        } else if (Input.GetKeyDown(KeyCode.RightBracket))
-        {
-            mixerVolume = mixerVolume + 0.5f;
-            ChangeVolume(mixerVolume);
+
         }
+        else
+        {
+
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -67,11 +63,6 @@ public class MainPlayer : MonoBehaviour
     private bool IsInLayerMask(int layer, LayerMask layermask)
     {
         return layermask == (layermask | (1 << layer));
-    }
-
-    private void ChangeVolume(float value)
-    {
-        audioMixer.SetFloat("Volume", value);
     }
 
     public void HideCurrentPrompt()
