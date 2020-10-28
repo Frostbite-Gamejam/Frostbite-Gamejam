@@ -13,12 +13,15 @@ public class MainPlayer : MonoBehaviour
     [HideInInspector] public string promptToDisplay;
     public KeyCode interactKey = KeyCode.E;
     private float mixerVolume = -35f;
+    
+    //public UnityEvent notebookCall;
     #endregion
 
     #region METHODS
     private void Awake()
     {
         interactionPrompt = GetComponent<InteractionPrompt>();
+        //notebookCall.AddListener(GetComponent<NotebookMenu>.)
     }
     private void Start()
     {
@@ -27,6 +30,9 @@ public class MainPlayer : MonoBehaviour
 
     private void Update()
     {
+        // if (Input.GetKeyDown(KeyCode.T)) {
+        //     notebookCall.Invoke();
+        // }
         if (Input.GetKeyDown(KeyCode.E) && canInteract)
         {
             playerIsInteracting = true;
@@ -34,7 +40,6 @@ public class MainPlayer : MonoBehaviour
         {
             playerIsInteracting = false;
         }
-
         if (Input.GetKeyDown(KeyCode.LeftBracket))
         {
             mixerVolume = mixerVolume - 0.5f;
