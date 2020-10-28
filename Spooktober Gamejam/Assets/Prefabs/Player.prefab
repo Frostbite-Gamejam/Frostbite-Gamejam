@@ -584,11 +584,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notebookMenuContainer: {fileID: 0}
-  notebookKey: 113
+  notebookKey: 9
   infoMenuContainer: {fileID: 0}
-  infoKey: 102
+  infoKey: 113
   pauseMenuContainer: {fileID: 0}
-  pauseKey: 121
+  pauseKey: 27
   firstLevel: {fileID: 0}
   secondLevel: {fileID: 0}
   thirdLevel: {fileID: 0}

@@ -879,10 +879,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2558641014687175131, guid: 9203854bf13874241862b17ca3299431,
-        type: 3}
-      propertyPath: mouseInputMultiplier
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9203854bf13874241862b17ca3299431, type: 3}

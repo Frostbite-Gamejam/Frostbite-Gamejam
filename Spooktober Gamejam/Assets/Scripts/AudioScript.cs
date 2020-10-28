@@ -8,23 +8,24 @@ public class AudioScript : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private Slider audioSlider;
     [SerializeField] private Text audioNum;
+
     void Start()
     {
-        mixerVolume = SettingsManager.instance.volume;
-        //audioMixer.SetFloat("Volume", mixerVolume);
-        //audioNum.text = (mixerVolume + 80).ToString();
+        audioMixer.SetFloat("Volume", PlayerPrefs.GetFloat("savedVolume", mixerVolume));
+        audioNum.text = (mixerVolume + 80).ToString();
     }
-    //void Update()
-    //{
-        //mixerVolume = SettingsManager.instance.volume;
-        //audioSlider.value = mixerVolume;
-        //audioNum.text = (mixerVolume + 80).ToString();
-    //}
+    
+    void Update()
+    {
+        audioSlider.value = PlayerPrefs.GetFloat("savedVolume");
+        audioNum.text = (mixerVolume + 80).ToString();
+    }
+
     public void ChangeVolume()
     {
-        mixerVolume = audioSlider.value;
+        PlayerPrefs.SetFloat("savedVolume", audioSlider.value);
+        mixerVolume = PlayerPrefs.GetFloat("savedVolume");
         audioMixer.SetFloat("Volume", mixerVolume);
         audioNum.text = (mixerVolume + 80).ToString();
-        SettingsManager.instance.volume = mixerVolume;
     }
 }
