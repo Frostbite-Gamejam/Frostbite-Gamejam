@@ -1,20 +1,24 @@
 ﻿using CMF;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class NotebookMenu : MonoBehaviour
+public class SuperMenuScript : MonoBehaviour
 {
-
     private AdvancedWalkerController advancedWalkerController;
     private CameraController cameraController;
     private MainPlayer mainPlayer;
-    private InfoMenuManager infoMenuManager;
+    private float initialCameraSpeed;
+    private float initialMovementSpeed;
 
     //notebook
-    [SerializeField] private TMP_InputField firstInputField;
-    [SerializeField] private GameObject notebookBackground;
-    [SerializeField] private GameObject notebookUIParent;
-    [SerializeField] private KeyCode notebookKey = KeyCode.Q;
+    [SerializeField] private GameObject notebookMenuContainer;
+    [SerializeField] private KeyCode notebookKey;
+    [SerializeField] private GameObject infoMenuContainer;
+    [SerializeField] private KeyCode infoKey;
+    [SerializeField] private GameObject pauseMenuContainer;
+    [SerializeField] private KeyCode pauseKey;
 
     [SerializeField] private LevelManager firstLevel;
     [SerializeField] private LevelManager secondLevel;
@@ -29,30 +33,44 @@ public class NotebookMenu : MonoBehaviour
     [SerializeField] private bool fourthDoorUnlock = false;
     [SerializeField] private bool fifthDoorUnlock = false;
 
-    public bool notebookIsOpen = false;
     private bool notebookHiddenFirstLevel = false;
     private bool notebookHiddenSecondLevel = false;
     private bool notebookHiddenThirdLevel = false;
     private bool notebookHiddenForthLevel = false;
     private bool notebookHiddenFifthLevel = false;
-    private float initialCameraSpeed;
-    private float initialMovementSpeed;
+
+    //info menu
+    [SerializeField] private GameObject[] buttons;
+    [SerializeField] private GameObject thoughtTextBox;
+
+
+    public bool isNotebookOpen = false;
+    public bool isInfoOpen = false;
+    public bool isPauseOpen = false;
+
 
     private void Awake()
     {
         advancedWalkerController = GetComponent<AdvancedWalkerController>();
         cameraController = GetComponentInChildren<CameraController>();
         mainPlayer = GetComponent<MainPlayer>();
-        infoMenuManager = GetComponent<InfoMenuManager>();
     }
 
     private void Start()
     {
         firstLevel.gameObject.SetActive(true);
-        notebookBackground.SetActive(false);
-        notebookUIParent.SetActive(false);
+        notebookMenuContainer.SetActive(false);
         initialCameraSpeed = cameraController.cameraSpeed;
         initialMovementSpeed = advancedWalkerController.movementSpeed;
+
+        infoMenuContainer.SetActive(false);
+        initialCameraSpeed = cameraController.cameraSpeed;
+        initialMovementSpeed = advancedWalkerController.movementSpeed;
+
+        for (var i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].SetActive(false);
+        }
     }
 
     private void Update()
@@ -63,7 +81,7 @@ public class NotebookMenu : MonoBehaviour
             secondLevel.gameObject.SetActive(true);
             if (!notebookHiddenFirstLevel)
             {
-                DisableNoteBook();
+                //DisableNoteBook();
                 notebookHiddenFirstLevel = true;
             }
             Debug.Log("First Level Is Clear");
@@ -75,7 +93,7 @@ public class NotebookMenu : MonoBehaviour
             thirdLevel.gameObject.SetActive(true);
             if (!notebookHiddenSecondLevel)
             {
-                DisableNoteBook();
+                //DisableNoteBook();
                 notebookHiddenSecondLevel = true;
             }
             Debug.Log("Second Level Is Clear");
@@ -87,7 +105,7 @@ public class NotebookMenu : MonoBehaviour
             forthLevel.gameObject.SetActive(true);
             if (!notebookHiddenThirdLevel)
             {
-                DisableNoteBook();
+                //DisableNoteBook();
                 notebookHiddenThirdLevel = true;
             }
             Debug.Log("Third Level Is Clear");
@@ -99,7 +117,7 @@ public class NotebookMenu : MonoBehaviour
             fifthLevel.gameObject.SetActive(true);
             if (!notebookHiddenForthLevel)
             {
-                DisableNoteBook();
+                //DisableNoteBook();
                 notebookHiddenForthLevel = true;
             }
             Debug.Log("Forth Level Is Clear");
@@ -109,48 +127,82 @@ public class NotebookMenu : MonoBehaviour
         {
             if (!notebookHiddenFifthLevel)
             {
-                DisableNoteBook();
+                //DisableNoteBook();
                 notebookHiddenFifthLevel = true;
             }
             Debug.Log("Fifth Level Is Clear You Have Completed The Game");
         }
 
-        if (Input.GetKeyDown(notebookKey) && notebookIsOpen)
+        if (Input.GetKeyDown(notebookKey) && isNotebookOpen)
         {
-            DisableNoteBook();
-        } else if (Input.GetKeyDown(notebookKey) && !notebookIsOpen)
-        {
-            EnableNoteBook();
+            DisableMenu(notebookKey);
         }
-
-        if (notebookIsOpen && infoMenuManager.infoMenuOpen)
+        else if (Input.GetKeyDown(notebookKey) && (!isNotebookOpen && !isInfoOpen && !isPauseOpen))
         {
-            infoMenuManager.DisableInfoMenu();
-            EnableNoteBook();
-            Debug.Log("Disabling Notebook Menu");
+            EnableMenu(notebookKey);
+        }
+        else if (Input.GetKeyDown(infoKey) && isInfoOpen)
+        {
+            DisableMenu(infoKey);
+        }
+        else if (Input.GetKeyDown(infoKey) && (!isNotebookOpen && !isInfoOpen && !isPauseOpen))
+        {
+            EnableMenu(infoKey);
+        }
+        else if (Input.GetKeyDown(pauseKey) && isPauseOpen)
+        {
+            DisableMenu(pauseKey);
+        }
+        else if (Input.GetKeyDown(pauseKey) && (!isNotebookOpen && !isInfoOpen && !isPauseOpen))
+        {
+            EnableMenu(pauseKey);
         }
     }
 
-    public void DisableNoteBook()
+    public void DisableMenu(KeyCode key)
     {
         Cursor.lockState = CursorLockMode.Locked;
         advancedWalkerController.movementSpeed = initialMovementSpeed;
         cameraController.cameraSpeed = initialCameraSpeed;
         mainPlayer.canInteract = true;
-        notebookBackground.SetActive(false);
-        notebookUIParent.SetActive(false);
-        notebookIsOpen = false;
+        if (key == notebookKey)
+        {
+            notebookMenuContainer.SetActive(false);
+            isNotebookOpen = false;
+        }
+        if (key == infoKey)
+        {
+            infoMenuContainer.SetActive(false);
+            isInfoOpen = false;
+        }
+        if (key == pauseKey)
+        {
+            pauseMenuContainer.SetActive(false);
+            isPauseOpen = false;
+        }
     }
 
-    public void EnableNoteBook()
+    public void EnableMenu(KeyCode key)
     {
         Cursor.lockState = CursorLockMode.None;
         advancedWalkerController.movementSpeed = 0f;
         cameraController.cameraSpeed = 0f;
         mainPlayer.canInteract = false;
-        notebookBackground.SetActive(true);
-        notebookUIParent.SetActive(true);
-        notebookIsOpen = true;
+        thoughtTextBox.SetActive(false);
+        if (key == notebookKey)
+        {
+            notebookMenuContainer.SetActive(true);
+            isNotebookOpen = true;
+        }
+        if (key == infoKey)
+        {
+            infoMenuContainer.SetActive(true);
+            isInfoOpen = true;
+        }
+        if (key == pauseKey)
+        {
+            pauseMenuContainer.SetActive(true);
+            isPauseOpen = true;
+        }
     }
-
 }

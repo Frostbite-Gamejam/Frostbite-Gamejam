@@ -111,8 +111,8 @@ namespace CMF
             }
 
             //Add input to camera angles;
-            currentXAngle += oldVerticalInput * cameraSpeed * 13 * Time.deltaTime;
-            currentYAngle += oldHorizontalInput * cameraSpeed * 13 * Time.deltaTime;
+            currentXAngle += oldVerticalInput * cameraSpeed * Time.deltaTime;
+            currentYAngle += oldHorizontalInput * cameraSpeed * Time.deltaTime;
 
             //Clamp vertical rotation;
             currentXAngle = Mathf.Clamp(currentXAngle, -upperVerticalLimit, lowerVerticalLimit);

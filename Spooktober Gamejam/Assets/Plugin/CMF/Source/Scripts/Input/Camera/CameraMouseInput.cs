@@ -13,8 +13,8 @@ namespace CMF
         public string mouseVerticalAxis = "Mouse Y";
 
         //Invert input options;
-		public bool invertHorizontalInput = false;
-		public bool invertVerticalInput = false;
+        public bool invertHorizontalInput = false;
+        public bool invertVerticalInput = false;
 
         //Use this value to fine-tune mouse movement;
         //All mouse input will be multiplied by this value;
